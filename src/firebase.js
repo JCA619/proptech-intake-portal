@@ -72,12 +72,12 @@ const DEFAULT_MOCK_LEADS = [
 // Firebase configuration placeholder
 // In production, these should be replaced with actual config values
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBDhmsLPp1USjF6ad6y3LIQebG4JPAMMMA",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "intake-form-87163.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "intake-form-87163",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "intake-form-87163.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "170034329510",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:170034329510:web:a179a8c3e5a13d56e9c167"
 };
 
 // Check if valid firebase configuration is provided
