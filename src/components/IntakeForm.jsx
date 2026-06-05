@@ -38,6 +38,7 @@ export default function IntakeForm() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   // Input validator
   const validateStep = (currentStep) => {
@@ -166,9 +167,18 @@ export default function IntakeForm() {
   return (
     <div style={styles.container}>
       <header style={styles.header}>
-        <div style={styles.logoContainer}>
-          <Home size={28} color="var(--primary-hover)" />
-          <span style={styles.logoText}>PropIntake</span>
+        <div style={styles.logoContainer} className="logo-hover-effect">
+          {!logoError ? (
+            <img 
+              src="logo.svg" 
+              alt="5RG Realty Logo" 
+              style={styles.logoImg} 
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <div style={styles.logoTextCircle}>5RG</div>
+          )}
+          <span style={styles.logoText}>5RG Realty</span>
         </div>
         <h1 style={styles.title}>Client Connection Portal</h1>
         <p style={styles.subtitle}>Let us know your preferences so we can guide you to your next home.</p>
@@ -514,8 +524,31 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
+    gap: 12,
     marginBottom: 16,
+  },
+  logoImg: {
+    height: 48,
+    width: 48,
+    borderRadius: '50%',
+    objectFit: 'contain',
+    background: '#fff',
+    padding: 2,
+    border: '2px solid var(--primary)',
+    transition: 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+  },
+  logoTextCircle: {
+    width: 44,
+    height: 44,
+    borderRadius: '50%',
+    background: 'var(--primary)',
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: 700,
+    fontSize: '0.95rem',
+    border: '2px solid rgba(255, 255, 255, 0.1)',
   },
   logoText: {
     fontSize: '1.4rem',

@@ -7,9 +7,9 @@
   --bg-gradient-start: hsl(224, 71%, 4%);
   --bg-gradient-end: hsl(220, 43%, 8%);
   
-  --primary: hsl(250, 84%, 60%);
-  --primary-hover: hsl(250, 84%, 66%);
-  --primary-light: hsla(250, 84%, 60%, 0.15);
+  --primary: hsl(348, 72%, 36%);
+  --primary-hover: hsl(348, 72%, 44%);
+  --primary-light: hsla(348, 72%, 36%, 0.15);
   
   --accent: hsl(160, 84%, 39%);
   --accent-hover: hsl(160, 84%, 45%);
@@ -307,3 +307,14 @@ select.form-input {
 .pulse-border {
   animation: pulseBorder 3s infinite ease-in-out;
 }
+
+/* Logo Hover Effects */
+.logo-hover-effect {
+  cursor: pointer;
+}
+
+.logo-hover-effect:hover svg {
+  transform: scale(1.1) rotate(8deg);
+  filter: drop-shadow(0 0 10px var(--primary-hover));
+}
+
