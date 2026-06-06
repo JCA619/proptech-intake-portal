@@ -140,7 +140,7 @@ export default function IntakeForm() {
 
       <div style={styles.fieldGroup}>
         <label style={styles.label}><Mail size={14} /> E-mail</label>
-        <input style={styles.input} type="email" value={data.email}
+        <input style={styles.input} type="text" inputMode="email" value={data.email}
           onChange={(e) => updater('email', e.target.value)} placeholder="you@example.com" />
         <div style={styles.inlineRadios}>
           {['work', 'personal'].map((t) => (
@@ -176,7 +176,7 @@ export default function IntakeForm() {
         <p style={styles.subtitle}>Please share your contact details so our team can reach you.</p>
       </header>
 
-      <form onSubmit={handleSubmit} style={styles.formCard} className="glass-card animate-fade-in">
+      <form onSubmit={handleSubmit} noValidate style={styles.formCard} className="glass-card animate-fade-in">
         <section style={styles.section}>
           <h3 style={styles.sectionTitle}><User size={18} /> First Contact</h3>
           {renderContactFields(primary, updatePrimary, 'primary', true)}
