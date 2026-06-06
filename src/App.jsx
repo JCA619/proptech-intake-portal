@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import IntakeForm from './components/IntakeForm';
 import AdminDashboard from './components/AdminDashboard';
-import { Home, Lock, UserCheck } from 'lucide-react';
+import { Home, Lock, UserCheck, Moon, Sun } from 'lucide-react';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
+
+  const [theme, setTheme] = useState(() => {
+    return document.documentElement.getAttribute('data-theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -21,6 +30,14 @@ export default function App() {
 
   return (
     <div style={styles.appContainer}>
+      <button
+        className="theme-toggle"
+        onClick={() => setTheme((t) => (t === 'light' ? 'dark' : 'light'))}
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode"
+      >
+        {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+      </button>
       {/* Main Content Area */}
       <main style={styles.mainContent}>
         {currentPath === '#/admin' ? (
